@@ -32,7 +32,7 @@ namespace SenseNet.TokenAuthentication
             return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(dateNumber);
         }
 
-        public string GenerateToken(string name, string role, out string refreshTokenString, bool refreshTokenAsWell = false)
+        public string GenerateToken(string name, string role, int userId, string userPath, out string refreshTokenString, bool refreshTokenAsWell = false)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -61,7 +61,9 @@ namespace SenseNet.TokenAuthentication
                     { "iat", numericNow},
                     { "nbf", numericNotBefore},
                     { "name", name},
-                    { "jti", Guid.NewGuid().ToString("N")}
+                    { "jti", Guid.NewGuid().ToString("N")},
+                    { "uid", userId},
+                    { "upath", userPath}
                 };
                 if (!string.IsNullOrWhiteSpace(role))
                 {
@@ -86,7 +88,9 @@ namespace SenseNet.TokenAuthentication
                         { "iat", numericNow},
                         { "nbf", numericNotBefore },
                         { "name", name},
-                        { "jti", Guid.NewGuid().ToString("N")}
+                        { "jti", Guid.NewGuid().ToString("N")},
+                        { "uid", userId},
+                        { "upath", userPath}
                     };
 
                     var refreshToken = new JwtSecurityToken(header, payload);

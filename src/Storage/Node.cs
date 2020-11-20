@@ -169,7 +169,33 @@ namespace SenseNet.ContentRepository.Storage
         /// </summary>
         protected internal virtual bool IsIndexingEnabled => true;
 
-        private static readonly List<string> SeeEnabledProperties = new List<string> { "Name", "Path", "Id", "Index", "NodeType", "ContentListId", "ContentListType", "Parent", "IsModified", "IsDeleted", "CreationDate", "ModificationDate", "CreatedBy", "ModifiedBy", "VersionCreationDate", "VersionModificationDate", "VersionCreatedById", "VersionModifiedById", "Aspects", "Icon", "StoredIcon" };
+        private static readonly List<string> SeeEnabledProperties = new List<string>
+        {
+            "Name",
+            "Path",
+            "Id",
+            "Index",
+            "NodeType",
+            "ContentListId",
+            "ContentListType",
+            "Parent",
+            "IsModified",
+            "IsDeleted",
+            "CreationDate",
+            "ModificationDate",
+            "CreatedBy",
+            "ModifiedBy",
+            "VersionCreationDate",
+            "VersionModificationDate",
+            "VersionCreatedById",
+            "VersionModifiedById",
+            "Aspects",
+            "Icon",
+            "StoredIcon",
+            "FullName",
+            "AllowedChildTypes"
+        };
+
         /// <summary>
         /// Returns true if the current user has enough permissions to view the property identified by the given name.
         /// </summary>

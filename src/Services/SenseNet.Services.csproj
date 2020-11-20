@@ -80,14 +80,11 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SenseNet.Security, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\SenseNet.Security.4.1.0\lib\netstandard2.0\SenseNet.Security.dll</HintPath>
-    </Reference>
     <Reference Include="SenseNet.TaskManagement.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\SenseNet.TaskManagement.Core.2.2.0\lib\netstandard2.0\SenseNet.TaskManagement.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SenseNet.Tools, Version=3.2.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\SenseNet.Tools.3.2.5\lib\netstandard2.0\SenseNet.Tools.dll</HintPath>
+    <Reference Include="SenseNet.Tools, Version=3.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\SenseNet.Tools.3.2.6\lib\netstandard2.0\SenseNet.Tools.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -405,6 +402,10 @@
     <Compile Include="Wopi\WopiService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\sn-security\src\SenseNet.Security\SenseNet.Security.csproj">
+      <Project>{3486cba7-49c2-4d50-8649-27c8f422de23}</Project>
+      <Name>SenseNet.Security</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\SenseNet.Common.csproj">
       <Project>{A453E920-29C0-45CD-984C-0D8E3631B1E3}</Project>
       <Name>SenseNet.Common</Name>

@@ -469,6 +469,11 @@ namespace SenseNet.Portal.OData
                 case "minimal": EntityMetadata = MetadataFormat.Minimal; break;
                 default: EntityMetadata = MetadataFormat.Full; break;
             }
+            // --------------------------------------------------------------- IsCollection
+            var isCollectionRequestStr = req["IsCollectionRequest"];
+            if (!string.IsNullOrEmpty(isCollectionRequestStr) && string.Compare(isCollectionRequestStr, "true", StringComparison.OrdinalIgnoreCase) == 0)
+                this.IsCollection = true;
+
             // --------------------------------------------------------------- multistep saving
             var multistepStr = req["multistepsave"];
             if (!string.IsNullOrEmpty(multistepStr) && string.Compare(multistepStr, "true", StringComparison.OrdinalIgnoreCase) == 0)

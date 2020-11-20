@@ -7,6 +7,7 @@ using SenseNet.Diagnostics;
 using SenseNet.TokenAuthentication;
 using System.Linq;
 using System.Security.Principal;
+using SenseNet.ContentRepository;
 using SenseNet.ContentRepository.Security;
 using SenseNet.Services.Virtualization;
 
@@ -397,8 +398,9 @@ namespace SenseNet.Portal.Virtualization
 
         private void EmitTokensAndCookies(HttpContextBase context, TokenManager tokenManager, DateTime validFrom, string userName, string roleName, bool refreshTokenAsWell)
         {
+            User user = User.Load(userName);
             string refreshToken;
-            var token = tokenManager.GenerateToken(userName, roleName, out refreshToken, refreshTokenAsWell);
+            var token = tokenManager.GenerateToken(userName, roleName, user.Id, user.Path, out refreshToken, refreshTokenAsWell);
             var tokenResponse = new TokenResponse();
             var accessSignatureIndex = token.LastIndexOf('.');
             var accessSignature = token.Substring(accessSignatureIndex + 1);
