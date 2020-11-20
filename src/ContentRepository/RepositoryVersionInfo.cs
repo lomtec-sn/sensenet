@@ -185,6 +185,7 @@ namespace SenseNet.ContentRepository
         }
         internal static bool IsComponentAllowed(SnComponentInfo component, Version installedComponentVersion)
         {
+            return true;
             if (installedComponentVersion == null)
                 throw new InvalidOperationException($"{component.ComponentId} component is missing.");
 
