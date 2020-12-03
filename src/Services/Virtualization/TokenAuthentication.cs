@@ -443,7 +443,12 @@ namespace SenseNet.Portal.Virtualization
             {
                 headAndPayload = refreshHeader;
             }
+#if DEBUG
+            return (headerMark || uriMark || headAndPayload != null);
+#else
             return request.IsSecureConnection && (headerMark || uriMark || headAndPayload != null);
+#endif
+
         }
 
         private string GetAuthenticationActionHeader(HttpRequestBase request)

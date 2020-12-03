@@ -172,6 +172,16 @@ namespace SenseNet.ContentRepository
             {
                 content.RebuildIndex(true, IndexRebuildLevel.IndexOnly);
             }
+
+            [ODataAction()]
+            [ContentTypes(N.CT.GenericContent, N.CT.ContentType, "SbaArchiveFile")]
+            [AllowedRoles(N.R.All)]
+            public static Content InitializeVersionMode(Content content)
+            {
+                content["VersioningMode"] = new List<string>(new[] { "2" });
+                content.SaveSameVersion();
+                return content;
+            }
         }
 
         public static bool ContentNavigatorEnabled => RepositoryEnvironment.XsltRenderingWithContentSerialization;

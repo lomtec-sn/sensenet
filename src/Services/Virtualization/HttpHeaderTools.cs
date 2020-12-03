@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Net;
@@ -358,7 +359,7 @@ namespace SenseNet.Portal.Virtualization
                         SetAccessControlHeaders(responseDomain);
                         return true;
                     }
-
+                    SnLog.WriteWarning("CORS domain not configured: " + originHeader, EventId.Portal);
                     // not found in the whitelist
                     error = true;
                 }

@@ -256,6 +256,7 @@
     <Compile Include="OData\Actions\CheckInAction.cs" />
     <Compile Include="OData\Actions\CheckOutAction.cs" />
     <Compile Include="OData\Actions\ForceUndoCheckOutAction.cs" />
+    <Compile Include="OData\Actions\InitializeVersionModeAction.cs" />
     <Compile Include="OData\Actions\PublishAction.cs" />
     <Compile Include="OData\Actions\RejectAction.cs" />
     <Compile Include="OData\Actions\RestoreVersionAction.cs" />
