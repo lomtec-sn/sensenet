@@ -400,7 +400,7 @@ namespace SenseNet.Portal.Virtualization
         {
             User user = User.Load(userName);
             string refreshToken;
-            var token = tokenManager.GenerateToken(userName, roleName, user.Id, user.Path, out refreshToken, refreshTokenAsWell);
+            var token = tokenManager.GenerateToken(userName, roleName, user.Id, user["ValidationId"], user.Path, out refreshToken, refreshTokenAsWell);
             var tokenResponse = new TokenResponse();
             var accessSignatureIndex = token.LastIndexOf('.');
             var accessSignature = token.Substring(accessSignatureIndex + 1);

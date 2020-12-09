@@ -32,7 +32,7 @@ namespace SenseNet.TokenAuthentication
             return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(dateNumber);
         }
 
-        public string GenerateToken(string name, string role, int userId, string userPath, out string refreshTokenString, bool refreshTokenAsWell = false)
+        public string GenerateToken(string name, string role, int userId, object validationId,  string userPath, out string refreshTokenString, bool refreshTokenAsWell = false)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -63,6 +63,7 @@ namespace SenseNet.TokenAuthentication
                     { "name", name},
                     { "jti", Guid.NewGuid().ToString("N")},
                     { "uid", userId},
+                    { "uvid", validationId},
                     { "upath", userPath}
                 };
                 if (!string.IsNullOrWhiteSpace(role))
@@ -90,6 +91,7 @@ namespace SenseNet.TokenAuthentication
                         { "name", name},
                         { "jti", Guid.NewGuid().ToString("N")},
                         { "uid", userId},
+                        { "uvid", validationId},
                         { "upath", userPath}
                     };
 
