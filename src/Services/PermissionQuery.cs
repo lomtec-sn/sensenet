@@ -176,7 +176,8 @@ namespace SenseNet.Portal
                 { "name", node.Name },
                 { "displayName", SNSR.GetString(node.DisplayName) },
                 { "domain", domain },
-                { "kind", kind.ToString().ToLower() }
+                { "kind", kind.ToString().ToLower() },
+                { "ValidationId", node["ValidationId"]}
             };
         }
     }
