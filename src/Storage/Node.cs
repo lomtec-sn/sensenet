@@ -1066,6 +1066,10 @@ namespace SenseNet.ContentRepository.Storage
         {
             get
             {
+                if (this.NodeType.Name == "User" && propertyName == "ValidationId" && PropertyTypes["ValidationId"] == null)
+                {
+                    return "";
+                }
                 switch (propertyName)
                 {
                     case "Id": return this.Id;
